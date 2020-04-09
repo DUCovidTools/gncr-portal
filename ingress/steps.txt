@@ -1,11 +1,20 @@
 
 ibmcloud cr login
 
-docker build . -t registry.eu-de.bluemix.net/ingress/demo-web:latest
-docker push registry.eu-de.bluemix.net/ingress/demo-web:latest
+docker build . -t alisonrclarke/gncr-portal:latest
+docker push alisonrclarke/gncr-portal:latest
+
+# Copy sample
 
 # check that we are connected
 kubectl cluster-info
+
+# Bind to appid
+ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name>
+
+# Update domains and secrets in ingress.yaml
+cp ingress.yaml ingress.yaml.example
+# Edit ingress.yaml to fill in bindSecret, host and secret
 
 kubectl apply -f deploy-web.yaml
 kubectl apply -f service-myshiny.yaml

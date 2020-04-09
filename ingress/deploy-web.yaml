@@ -1,17 +1,20 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: dashboard
   template:
     metadata:
       labels:
-        app: demo-web
+        app: dashboard
     spec:
       containers:
-      - name: demo-web
-        image: registry.eu-de.bluemix.net/ingress/demo-web:latest
+      - name: dashboard
+        image: alisonrclarke/dashboard-test:latest
 ---
 apiVersion: v1
 kind: Service
@@ -23,4 +26,4 @@ spec:
     targetPort: 80
     protocol: TCP
   selector:
-    app: demo-web
+    app: dashboard

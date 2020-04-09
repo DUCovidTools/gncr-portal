@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gncr-ingress-appid
+  annotations:
+    ingress.bluemix.net/rewrite-path: "serviceName=covid19seir-service rewrite=/"
+    ingress.bluemix.net/appid-auth: "bindSecret=<appid bind secret> namespace=default requestType=web serviceName=covid19seir-service,web-service"
+spec:
+   tls:
+   - hosts:
+     - <host>
+     secretName: <secret>
+   rules:
+   - host: <host>
+     http:
+       paths:
+       - path: /covid19seir/
+         backend:
+           serviceName: covid19seir-service
+           servicePort: 3838
+       - path: /
+         backend:
+           serviceName: web-service
+           servicePort: 80
