@@ -1,15 +1,30 @@
 <html>
-  <head><title>My Web Site</title></head>
-  <body>
-    <h1>Welcome</h1>
-    <p>This is the static web page served by nginx</p>
-    <h2>Visualization</h2>
-    <p>The following visualization is rendered by Shiny</p>
-    <iframe src="/shiny" width="800" height="500"></iframe>
-    <p>You can also access it directly using the link:
-      <a href="/shiny">My Shiny App</a>
-    </p>
+  <head>
+      <title>GNCR Dashboard</title>
+      <link rel="stylesheet" href="bootstrap.min.css" type="text/css" media="all">
+      <link rel="stylesheet" href="style.css" type="text/css" media="all">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap">
+  </head>
+  <body class="home page-template-default page page-id-5 page-parent">
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<a id="logo" href="/" style="height:100px"></a>
+		</div>
+	</nav>
+
+    <div id="page"></div>
+
+    <div id="footer">
+    <div class="container">
+        <div class="post-5 page type-page status-publish has-post-thumbnail hentry">
+			<h1 style="font-family:Montserrat">Great North Care Record COVID-19 Dashboard</h1>
+            <p>Links to tools:</p>
+            <ul>
+                <li><p><a href="/covid19seir">Modeling COVID-19 Spread vs Healthcare Capacity</a></p></li>
+            <ul>
+        </div>
+    </div>
+</div>
   </body>
 </html>
-
-  
