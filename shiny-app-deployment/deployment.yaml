@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: covid19seir-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: covid19seir
+  template:
+    metadata:
+      labels:
+        app: covid19seir
+    spec:
+      containers:
+      - name: covid19seir
+        image: alisonrclarke/covid19seir:latest
