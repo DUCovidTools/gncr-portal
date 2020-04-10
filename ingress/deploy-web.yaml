@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: dashboard
-        image: alisonrclarke/dashboard-test:latest
+        image: alisonrclarke/dashboard-test@sha256:bd0590f1b17106217e131bbf8d7b58e1c12a5f5bd88d3d6470c29e8e81dde3ff
 ---
 apiVersion: v1
 kind: Service
