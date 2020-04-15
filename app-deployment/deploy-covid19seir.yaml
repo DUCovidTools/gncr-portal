@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: covid19seir-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: covid19seir
+  template:
+    metadata:
+      labels:
+        app: covid19seir
+    spec:
+      containers:
+      - name: covid19seir
+        image: alisonrclarke/covid19seir@sha256:ab6005c4b11bed3ba3525a54b2503c614c04563ab61ca79936d2299014157c06
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: covid19seir-service
+spec:
+  ports:
+  - port: 3838
+    targetPort: 3838
+    protocol: TCP
+  selector:
+    app: covid19seir

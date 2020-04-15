@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <app-name>-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: <app-name>
+  template:
+    metadata:
+      labels:
+        app: <app-name>
+    spec:
+      containers:
+      - name: <app-name>
+        image: <dockerhub-image-name>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: <app-name>-service
+spec:
+  ports:
+  - port: <port>
+    targetPort: <port>
+    protocol: TCP
+  selector:
+    app: <app-name>
