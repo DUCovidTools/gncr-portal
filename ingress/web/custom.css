@@ -1,26 +1,46 @@
 .navbar .links {
-    position: absolute;
-    right: 0px;
-    width: 600px;
+    padding-left: 0;
 }
-.navbar .logo {
-    background: #fff url(images/logo.png) no-repeat;
+
+.navbar .logo, #footer .logo {
+    background: transparent url(images/logo.png) no-repeat;
     background-size: 100%;
     margin: 10px;
+    height: 80px;
     display: inline-block;
 }
-.navbar #durham-logo {
-    background-image: url('images/durham-logo.png');
-    width: 190px;
+
+.navbar .logo {
     height: 80px;
 }
 
-.navbar #arc-logo {
+#durham-logo {
+    background-image: url('images/durham-logo.png');
+    width: 190px;
+}
+
+#footer #arc-logo {
     background-image: url('images/arc-logo.png');
     width: 80px;
-    height: 80px;
     border-radius: 40px;
 }
+
+#footer #cecan-logo {
+    background-image: url('images/cecan-logo.png');
+    width: 160px;
+}
+
+#footer #complex-it-logo {
+    background-image: url('images/complex-it-logo.png');
+    width: 156px;
+}
+
+#footer #health-soc-logo {
+    background-image: url('images/health-soc-logo.png');
+    width: 250px;
+}
+
+
 
 body {
     font-size: 11pt;
