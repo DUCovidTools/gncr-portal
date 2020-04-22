@@ -40,7 +40,10 @@
     width: 250px;
 }
 
-
+#footer #wolfson-logo {
+    background-image: url('images/wolfson-logo.png');
+    width: 160px;
+}
 
 body {
     font-size: 11pt;
@@ -53,6 +56,10 @@ body, h1, #footer {
 
 a {
     color: #68246D;
+}
+
+p.spaced {
+    margin-top: 18px;
 }
 
 #page {
