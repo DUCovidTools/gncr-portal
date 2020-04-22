@@ -40,9 +40,14 @@
     width: 250px;
 }
 
+#footer #maths-logo {
+    background-image: url('images/maths-logo.png');
+    width: 138px;
+}
+
 #footer #wolfson-logo {
     background-image: url('images/wolfson-logo.png');
-    width: 160px;
+    width: 159px;
 }
 
 body {
