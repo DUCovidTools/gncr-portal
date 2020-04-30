@@ -75,6 +75,7 @@ To add an app to the Kubernetes cluster, you will need to get it running in a [d
 5. Create a [dockerhub](https://hub.docker.com) account (if you don't already have one) and follow their [quickstart guide](https://docs.docker.com/docker-hub/) to log in with the command line client, but create a public rather than private repository (see below if you want to keep it private).
 6. Push your image to docker:
     ```bash
+    docker tag <app-image-name> <your_username>/<app-image-name>
     docker push <your_username>/<app-image-name>
     ```
 7. Commit your Dockerfile to your repository.
