@@ -102,8 +102,16 @@ You may wish to [enable automated builds](https://docs.docker.com/docker-hub/bui
             ingress.bluemix.net/rewrite-path: "serviceName=<app-name>-service rewrite=/"
             ...    
         ```
-    2. Add a new `path` section under `spec/rules/host/http/paths`, replacing `<app-name>` with your app name and `<port>` with the port number (as in the deployment file):
+	2. Add the new service name to the `serviceName` list under the `ingress.bluemix.net/appid-auth` annotation under `metadata/annotations`, replacing `<app-name>` with your app name:
         ```yml
+        metadata:
+          name: gncr-ingress-appid
+          annotations:
+            ...    
+            ingress.bluemix.net/appid-auth: "bindSecret=... serviceName=...,<app-name>-service,web-service idToken=false"
+        ```
+    3. Add a new `path` section under `spec/rules/host/http/paths`, replacing `<app-name>` with your app name and `<port>` with the port number (as in the deployment file):
+    	```yml
         spec:
           ...
           rules:
