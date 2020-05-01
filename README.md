@@ -94,23 +94,20 @@ You may wish to [enable automated builds](https://docs.docker.com/docker-hub/bui
     ```
 4. Edit [ingress/ingress.yaml.example](ingress/ingress.yaml.example) as follows:
 
-    1. Add a new annotation line under `metadata/annotations`, replacing `<app-name>` with your app name:
-        ```yml
-        metadata:
-          name: gncr-ingress-appid
-          annotations:
-            ingress.bluemix.net/rewrite-path: "serviceName=<app-name>-service rewrite=/"
-            ...    
-        ```
-	2. Add the new service name to the `serviceName` list under the `ingress.bluemix.net/appid-auth` annotation under `metadata/annotations`, replacing `<app-name>` with your app name:
-        ```yml
-        metadata:
-          name: gncr-ingress-appid
-          annotations:
-            ...    
-            ingress.bluemix.net/appid-auth: "bindSecret=... serviceName=...,<app-name>-service,web-service idToken=false"
-        ```
-    3. Add a new `path` section under `spec/rules/host/http/paths`, replacing `<app-name>` with your app name and `<port>` with the port number (as in the deployment file):
+    1. Update the annotations under `metadata/annotations`:
+        1. Append `;serviceName=<app-name>-service rewrite=/` to the `rewrite-path` annotation, ensuring there are no spaces around the semicolon.
+		2. Modify the `appid-auth` annotation to append `,<app-name>-service` to the `serviceName=` parameter.
+
+	```yml
+    metadata:
+      name: gncr-ingress-appid
+      annotations:
+        ingress.bluemix.net/rewrite-path: "... rewrite=/;serviceName=<app-name>-service rewrite=/"
+        ingress.bluemix.net/appid-auth: "bindSecret=... serviceName=...,<app-name>-service,web-service idToken=false"
+        ...    
+    ```
+
+    2. Add a new `path` section under `spec/rules/host/http/paths`, replacing `<app-name>` with your app name and `<port>` with the port number (as in the deployment file):
     	```yml
         spec:
           ...

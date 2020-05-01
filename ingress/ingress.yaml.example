@@ -3,8 +3,7 @@ kind: Ingress
 metadata:
   name: gncr-ingress-appid
   annotations:
-    ingress.bluemix.net/rewrite-path: "serviceName=covid19seir-service rewrite=/"
-    ingress.bluemix.net/rewrite-path: "serviceName=complexit-service rewrite=/"
+    ingress.bluemix.net/rewrite-path: "serviceName=covid19seir-service rewrite=/;serviceName=complexit-service rewrite=/"
     ingress.bluemix.net/appid-auth: "bindSecret=<appid bind secret> namespace=default requestType=web serviceName=covid19seir-service,complexit-service,web-service"
 spec:
    tls:
