@@ -4,9 +4,10 @@ This repo contains the static website and sample code/config for deploying apps 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Structure](#structure)
-- [Initial deployment steps](#initial-deployment-steps)
+- [Setup](#setup)
 	- [Prerequisites](#prerequisites)
-	- [Steps](#steps)
+	- [Connect to the cluster](#connect-to-the-cluster)
+- [Initial deployment steps](#initial-deployment-steps)
 - [Adding a new app](#adding-a-new-app)
 	- [Creating a docker image](#creating-a-docker-image)
 	- [Deploying to Kubernetes and configuring Ingress](#deploying-to-kubernetes-and-configuring-ingress)
@@ -19,21 +20,32 @@ This repo contains the static website and sample code/config for deploying apps 
 * `ingress` - static web app which links to the individual apps, and contains instructions on deploying the on Kubernetes with Ingress, with URL Rewrite and integration with App ID for authentication.
 * `original-tutorial` - contains the original tutorial materials from [https://github.com/holken1/deploying-r-on-cloud](https://github.com/holken1/deploying-r-on-cloud), which was the starting point for our deployment, but no longer reflects how things are working. They may contain useful information if the instructions below fail to work.
 
-## Initial deployment steps
+## Setup
 
 ### Prerequisites
  * You have installed the Kubernetes command link tools, and the IBM cloud CLI with the Kubernetes plugin.
- * You have created a Kubernetes cluster in IBM cloud.
- * You have created an App ID instance in IBM cloud.
+ * You have (or someone in the team has) created a Kubernetes cluster in IBM cloud.
+ * You have (or someone in the team has) created an App ID instance in IBM cloud.
 
-### Steps
+### Connect to the cluster
 
 ```bash
 
+# Login to ibmcloud and container registry
+ibmcloud login
 ibmcloud cr login
 
 # check that we are connected
 kubectl cluster-info
+
+# (if not connected, run:)
+ibmcloud ks cluster ls
+ibmcloud ks cluster config --cluster <cluster_name_or_ID>
+```
+
+## Initial deployment steps
+
+```bash
 
 # Bind to appid
 ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name>
