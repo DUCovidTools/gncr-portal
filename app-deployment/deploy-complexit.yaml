@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: complexit
-        image: ducovid19tools/complexit@sha256:07b0670b6ed8a7a48bef61ece3de7f8de5b608000ba6d6f8875ae11db6a850eb
+        image: ducovid19tools/complexit:v0.1.0
 ---
 apiVersion: v1
 kind: Service

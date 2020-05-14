@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
       - name: covid19seir
-        image: alisonrclarke/covid19seir@sha256:ab6005c4b11bed3ba3525a54b2503c614c04563ab61ca79936d2299014157c06
-
+        image: ducovid19tools/covid19seir:v0.1.0
 ---
 apiVersion: v1
 kind: Service

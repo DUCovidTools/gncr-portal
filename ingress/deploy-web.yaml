@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: dashboard
-        image: alisonrclarke/dashboard-test@sha256:dff4a43e161ab5121f346d534afb664e1fb425094726d320de48ac5bac1cac9e
+        image: ducovid19tools/portal:v0.1.0
 ---
 apiVersion: v1
 kind: Service
