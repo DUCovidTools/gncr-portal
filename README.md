@@ -7,11 +7,13 @@ This repo contains the static website and sample code/config for deploying apps 
 - [Setup](#setup)
 	- [Prerequisites](#prerequisites)
 	- [Connect to the cluster](#connect-to-the-cluster)
+	- [Create a local ingress deployment file](#create-a-local-ingress-deployment-file)
 - [Initial deployment steps](#initial-deployment-steps)
 - [Adding a new app](#adding-a-new-app)
 	- [Creating a docker image](#creating-a-docker-image)
 	- [Deploying to Kubernetes and configuring Ingress](#deploying-to-kubernetes-and-configuring-ingress)
 - [Updating the web app](#updating-the-web-app)
+- [Updating a dashboard app](#updating-a-dashboard-app)
 
 <!-- /TOC -->
 
