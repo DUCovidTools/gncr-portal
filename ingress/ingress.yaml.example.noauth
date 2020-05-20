@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gncr-ingress-noauth
+  annotations:
+    ingress.bluemix.net/rewrite-path: "serviceName=covid19seir-service rewrite=/;serviceName=complexit-service rewrite=/"
+spec:
+   tls:
+   - hosts:
+     - <host>
+     secretName: <secret>
+   rules:
+   - host: <host>
+     http:
+       paths:
+       - path: /covid19seir/
+         backend:
+           serviceName: covid19seir-service
+           servicePort: 3838
+       - path: /complexit/
+         backend:
+           serviceName: complexit-service
+           servicePort: 3838
+       - path: /
+         backend:
+           serviceName: web-service
+           servicePort: 80

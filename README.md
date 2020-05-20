@@ -1,5 +1,5 @@
 # GNCR portal
-This repo contains the static website and sample code/config for deploying apps (e.g. R Shiny, python) to a Kubernetes cluster in IBM cloud, authenticating via AppId.
+This repo contains the static website and sample code/config for deploying apps (e.g. R Shiny, python) to a Kubernetes cluster in IBM cloud, optionally authenticating via AppId.
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -25,7 +25,7 @@ This repo contains the static website and sample code/config for deploying apps 
 ### Prerequisites
  * You have installed the Kubernetes command link tools, and the IBM cloud CLI with the Kubernetes plugin.
  * You have (or someone in the team has) created a Kubernetes cluster in IBM cloud.
- * You have (or someone in the team has) created an App ID instance in IBM cloud.
+ * You have (or someone in the team has) created an App ID instance in IBM cloud (if using).
 
 ### Connect to the cluster
 
@@ -43,17 +43,37 @@ ibmcloud ks cluster ls
 ibmcloud ks cluster config --cluster <cluster_name_or_ID>
 ```
 
+### Create a local ingress deployment file
+
+```bash
+
+# Bind to appid, only if using
+ibmcloud ks cluster service bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name>
+
+# Create ingress configuration file
+cp ingress/ingress.yaml.example.noauth ingress/ingress.yaml
+ibmcloud ks cluster get --cluster <cluster_name_or_ID> | grep Ingress
+```
+
+Edit `ingress.yaml` to fill in host and secret with the values shown by the previous command ('Ingress Subdomain' and 'Ingress Secret').
+
 ## Initial deployment steps
+
+These are only used to set up the cluster initially. They should not be repeated unless creating a new cluster.
+
+If using AppID, run:
 
 ```bash
 
 # Bind to appid
-ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name>
+ibmcloud ks cluster service bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name>
 
-# Create ingress configuration file
-cp ingress/ingress.yaml.example ingress/ingress.yaml
-# Edit ingress.yaml to fill in bindSecret, host and secret
+# Edit ingress.yaml (copied from ingress.yaml.example/appid) to fill in bindSecret with the values shown by the previous command
+```
 
+In all cases, run:
+
+```
 # Deploy the web app
 kubectl apply -f ingress/deploy-web.yaml
 # Deploy any other apps (see next section)
@@ -104,18 +124,16 @@ You may wish to [enable automated builds](https://docs.docker.com/docker-hub/bui
     ```bash
     kubectl apply -f app-deployment/deploy-<app-name>.yaml
     ```
-4. Edit [ingress/ingress.yaml.example](ingress/ingress.yaml.example) as follows:
+4. Edit [ingress/ingress.yaml.example.noauth](ingress/ingress.yaml.example.noauth) as follows:
 
     1. Update the annotations under `metadata/annotations`:
         1. Append `;serviceName=<app-name>-service rewrite=/` to the `rewrite-path` annotation, ensuring there are no spaces around the semicolon.
-		2. Modify the `appid-auth` annotation to append `,<app-name>-service` to the `serviceName=` parameter.
 
 	```yml
     metadata:
-      name: gncr-ingress-appid
+      name: gncr-ingress-noauth
       annotations:
         ingress.bluemix.net/rewrite-path: "... rewrite=/;serviceName=<app-name>-service rewrite=/"
-        ingress.bluemix.net/appid-auth: "bindSecret=... serviceName=...,<app-name>-service,web-service idToken=false"
         ...    
     ```
 
@@ -133,7 +151,7 @@ You may wish to [enable automated builds](https://docs.docker.com/docker-hub/bui
                     servicePort: <port>
                 ...
         ```
-5. Copy these `ingress.yaml.example` file changes to `ingress.yaml` so that others can redeploy without losing your app.
+5. Copy these `ingress.yaml.example.noauth` file changes to your local copy of `ingress.yaml`.
 6. Apply the updated configuration file:
     ```bash
     kubectl apply -f ingress/ingress.yaml
