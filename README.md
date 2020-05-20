@@ -189,3 +189,23 @@ You may wish to [enable automated builds](https://docs.docker.com/docker-hub/bui
     kubectl apply -f ingress/deploy-web.yaml
     ```
 5. Refresh the main portal page and check your link appears and works.
+
+## Updating a dashboard app
+1. Make your changes to the app and build a new docker image. (If your repository is connected to dockerhub the image will be built automatically when you put a commit to GitHub or create a new tag.)
+2. Edit the yaml file in `app-deployment` that relates to your app, e.g. `deploy-complexit.yaml`, to change the version number or SHA hash under the `image` section, e.g. `ducovid19tools/covid19seir:v0.1.0` (version number, for tagged image) or `ducovid19tools/covid19seir@sha256:bd0590f1b17106217e131bbf8d7b58e1c12a5f5bd88d3d6470c29e8e81dde3ff` (SHA hash, for untagged image) e.g.:
+    ```yml
+    spec:
+      ...
+      template:
+        ...
+        spec:
+          containers:
+          - name: complexit
+            image: ducovid19tools/covid19seir:<new-version-number>
+    ```
+3. Apply the updated configuration file:
+    ```bash
+    kubectl apply -f app-deployment/deploy-<app-name>.yaml
+    ```
+4. Visit the service frontend to check your updates are in place and working.
+5. Commit your change to the yaml file and push to GitHub.
