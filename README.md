@@ -56,7 +56,10 @@ ibmcloud ks cluster config --cluster <cluster_name_or_ID>
 ```bash
 # Create ingress configuration file
 cp ingress/ingress.yaml.example.noauth ingress/ingress.yaml
+# For bash:
 ibmcloud ks cluster get --cluster <cluster_name_or_ID> | grep Ingress
+# For Powershell:
+ibmcloud ks cluster get --cluster <cluster_name_or_ID> | Select-String Ingress
 ```
 
 Edit `ingress.yaml` to fill in host and secret with the values shown by the previous command ('Ingress Subdomain' and 'Ingress Secret').
