@@ -25,7 +25,12 @@ This repo contains the static website and sample code/config for deploying apps 
 ## Setup
 
 ### Prerequisites
- * You have installed the Kubernetes command link tools, and the IBM cloud CLI with the Kubernetes plugin.
+ * You have followed the [IBM cloud CLI installation instructions](https://cloud.ibm.com/docs/cli?topic=cli-install-devtools-manually) to install:
+   * IBM Cloud CLI
+   * Docker (read the [full instructions](https://docs.docker.com/desktop/) to get it working on Windows)
+   * Kubernetes command line tools
+   * IBM Cloud Container Registry CLI plug-in
+   * IBM Cloud Kubernetes Service CLI plug-in
  * You have (or someone in the team has) created a Kubernetes cluster in IBM cloud.
  * You have (or someone in the team has) created an App ID instance in IBM cloud (if using).
 
