@@ -33,6 +33,7 @@ This repo contains the static website and sample code/config for deploying apps 
    * IBM Cloud Kubernetes Service CLI plug-in
  * You have (or someone in the team has) created a Kubernetes cluster in IBM cloud.
  * You have (or someone in the team has) created an App ID instance in IBM cloud (if using).
+ * You have cloned this repository and have a terminal/Powershell/shell open, cd'd to the top-level directory.
 
 ### Connect to the cluster
 
@@ -53,10 +54,6 @@ ibmcloud ks cluster config --cluster <cluster_name_or_ID>
 ### Create a local ingress deployment file
 
 ```bash
-
-# Bind to appid, only if using
-ibmcloud ks cluster service bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name>
-
 # Create ingress configuration file
 cp ingress/ingress.yaml.example.noauth ingress/ingress.yaml
 ibmcloud ks cluster get --cluster <cluster_name_or_ID> | grep Ingress
@@ -68,11 +65,11 @@ Edit `ingress.yaml` to fill in host and secret with the values shown by the prev
 
 These are only used to set up the cluster initially. They should not be repeated unless creating a new cluster.
 
-If using AppID, run:
+If using AppID (we're not currently using it), run:
 
 ```bash
 
-# Bind to appid
+# Bind to AppId
 ibmcloud ks cluster service bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name>
 
 # Edit ingress.yaml (copied from ingress.yaml.example/appid) to fill in bindSecret with the values shown by the previous command
