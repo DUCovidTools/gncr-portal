@@ -1,48 +1,301 @@
-<html>
-  <head>
-      <title>Covid-19 Planning Tools</title>
-      <link rel="stylesheet" href="bootstrap.min.css" type="text/css" media="all">
-      <link rel="stylesheet" href="style.css" type="text/css" media="all">
-      <link rel="stylesheet" href="custom.css" type="text/css" media="all">
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">>
-  </head>
-  <body class="home page-template-default page page-id-5 page-parent">
+<html lang="en">
 
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container links">
-            <a class="logo" id="durham-logo" href="https://www.durham.ac.uk/" title="Durham University"></a>
+<head>
+    <title>Covid-19 Planning Tools</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light" role="navigation">
+        <a class="navbar-brand" id="header" href=#>
+            <img src='images/durham-logo.png' id="durham-logo" href="https://www.durham.ac.uk/"
+                title="Durham University">
+            Covid-19 Planning Tools
+        </a>
+    </nav>
+    <main role="main" class="container">
+        <p class="spaced">Dashboards</p>
+        <ul>
+            <li>
+                <p><a href="/complexit">COMPLEX-IT Covid19 Model</a></p>
+            </li>
+            <li>
+                <p>We are currently calibrating Alison Hill's model with varying lockdown strategies for local
+                    authorities. Here you can find the original model: <a href="/covid19seir">Modeling COVID-19 Spread
+                        vs Healthcare Capacity</a></p>
+            </li>
+        </ul>
+
+        <p class="spaced">COMPLEX-IT weekly reports</p>
+
+        <p>For the specific weekly forecasts for each of the authority districts and how to read the trends
+            reported, please see the
+            Shiny app <a href="/complexit">COMPLEX-IT Covid19 Model</a>.
+        </p>
+        <div id="accordion" class="panel-group">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="panel-title">
+                        <a class="card-link collapsed" data-toggle="collapse" href="#c8" aria-expanded="false"
+                            aria-controls="C8">
+                            Report 8 (Week 25/05/2020)
+                        </a>
+                    </h6>
+                </div>
+                <div id="C8" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        <p class="spaced-small">HIGHLIGHTS</p>
+                        <ul>
+                            <li>The main theme this week is that, despite two weeks of a slow departure from
+                                lockdown
+                                almost all of the authority districts in the North East regions have flattened
+                                their
+                                curves.
+                                <ul>
+                                    <li>This is true for all trends, from the slowest to the worst!</li>
+                                    <li>New cases have also slowed down (see Figure 2 below).</li>
+                                </ul>
+                            </li>
+                            <li>Leeds, County Durham and Sheffield – the three starkest trends – continue to
+                                flatten
+                                This is particularly true for Sheffield.</li>
+                            <li>Overall, the majority of authority districts (n=16) in the North East regions
+                                remain
+                                part of the slowest trends in England and Italy.</li>
+                        </ul>
+                        <p class="spaced-small">MORE SPECIFIC TRENDS</p>
+
+                        <ol>
+                            <li> Over the past week, the total number of authority districts in the North East
+                                regions
+                                in the slowest curves in England and Italy stayed roughly the same at n=16
+                                (roughly
+                                59%). Following last week, most of the trends continue to remain relatively
+                                flat;
+                                however, a few, such as Kingston upon Hull, have had a slight uptick.
+                            </li>
+
+
+                            <li> The daily number of new cases (over the last two weeks) across all n=27
+                                authority
+                                districts support this general insight, with many slowing down and levelling. As
+                                further
+                                demonstration, a trend line was plotted for Gateshead and County Durham, which
+                                show the
+                                number of new cases does seem to be slowing down and have passed the peak.
+                            </li>
+
+
+
+
+                            <li> Bradford continue to also be part of the slow to moderate growing trends. But,
+                                while
+                                higher than the slowest trends, Bradford was going up as of last week. This week
+                                it
+                                appears to be levelling off slightly.
+                            </li>
+
+                            <li>Moderate trends for Sunderland, Newcastle, North Yorkshire, Rotherham and
+                                Northumberland, North Yorkshire, Gateshead and Barnsley all appear to have
+                                flattened.
+                            </li>
+
+
+                            <li> Leeds and County Durham continue to level off. While two of the curves with the
+                                highest numbers in the North East, North Yorkshire and Humber regions, relative
+                                to the
+                                entire England and Italy dataset they are not part of the worst curves.
+                            </li>
+
+
+
+
+                            <li> Even Sheffield has levelled off and continues to be relatively flat, despite
+                                being
+                                the most severe trend in the North East and North Yorkshire.
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="panel-title">
+                        <a class="card-link collapsed" data-toggle="collapse" href="#c7" aria-expanded="false"
+                            aria-controls="C7">
+                            Report 7 (Week 18/05/2020)
+                        </a>
+                    </h6>
+                </div>
+                <div id="C7" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        <p class="spaced-small">HIGHLIGHTS</p>
+                        <ul>
+                            <li>
+                                The main theme this week is that the majority of authority districts in the
+                                North East, North Yorkshire and Humber regions continue to be levelling off.
+                                <ul>
+                                    <li>This is true for all trends, from the slowest to the worst!</li>
+                                    <li>New cases have also slowed down (see Figure 2 below).</li>
+                                </ul>
+                            </li>
+                            <li>Leeds, County Durham and Sheffield – the three worst trends – are finally
+                                levelling off.
+                            </li>
+                            <li>Overall, the majority of authority districts (n=17) in the North East and
+                                North Yorkshire and Humber regions remain part of the slowest trends in England
+                                and Italy.</li>
+                        </ul>
+                        <p class="spaced-small">MORE SPECIFIC TRENDS</p>
+
+                        <ol>
+                            <li> Over the past week, the total number of authority districts in the North
+                                East regions in the slowest curves in England and Italy stayed roughly the same
+                                at n=16 (roughly 59%). Following last week, most of the trends continue to
+                                remain relatively flat; however, a few, such as Kingston upon Hull, have had a
+                                slight uptick.
+                            </li>
+
+                            <li> The daily number of new cases (over the last two weeks) across all n=27
+                                authority districts support this general insight, with many slowing down. As
+                                further demonstration, a trend line was plotted for County Durham, which shows
+                                the number of new cases does seem to be slowing down.
+                            </li>
+
+                            <li> Bradford continue to also be part of the slow to moderate growing trends. But,
+                                while higher than the slowest trends, Bradford continues to increase in cases.
+                            </li>
+
+                            <li>Sunderland, Newcastle, North Yorkshire, Rotherham and Northumberland, North
+                                Yorkshire, Gateshead and Barnsley are all part of the moderate trends, but also
+                                all appear to be slowing down as well and levelling off.
+                            </li>
+
+                            <li> Leeds and County Durham seem to finally be levelling off. Nonetheless, they
+                                remain two of the curves with the highest numbers in the North East and North
+                                Yorkshire regions. But relative to the entire England and Italy dataset they are
+                                not part of the worst curves.
+                            </li>
+
+                            <li> Even Sheffield has levelled off, despite being the most severe trend in the
+                                North East and North Yorkshire.
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
         </div>
-	</nav>
 
-    <div id="page">
         <div class="container">
-            <div class="post-5 page type-page status-publish has-post-thumbnail hentry">
-    			<h1>Covid-19 Planning Tools</h1>
-                <p class="spaced">Links to tools:</p>
-                <ul>
-                    <li><p><a href="/covid19seir">Modeling COVID-19 Spread vs Healthcare Capacity</a></p></li>
-                    <li><p><a href="/complexit">COMPLEX-IT Covid19 Model</a></p></li>
-                </ul>
-                <p class="spaced">Please contact <a href="mailto:c.c.d.s.caiado@durham.ac.uk">Camila Caiado</a> with any queries.
-            </div>
-        </div>
-    </div>
+            <p class="spaced">About the Durham COVID-19 Modelling team</p>
 
-    <div id="footer">
-        <div class="container">
-            <div class="container links">
-                <a class="logo" id="arc-logo" href="https://www.durham.ac.uk/arc" title="Advanced Research Computing"></a>
-                <a class="logo" id="cecan-logo" href="https://www.cecan.ac.uk" title="CECAN"></a>
-                <a class="logo" id="complex-it-logo" href="https://www.art-sciencefactory.com/complexit.html" title="COMPLEX-IT"></a>
-                <a class="logo" id="maths-logo" href="https://www.dur.ac.uk/mathematical.sciences/" title="Department of Mathematical Sciences"></a>
-                <a class="logo" id="wolfson-logo" href="https://www.dur.ac.uk/wolfson.institute/" title="Wolfson Institute for Health and Wellbeing"></a>
-            </div>
-            <div class="post-5 page type-page status-publish has-post-thumbnail hentry">
-                <p>&copy; <a href="https://www.durham.ac.uk">Durham University</a> 2020</p>
-                <p></p>
-            </div>
-        </div>
-    </div>
+            <p>The COVID-19 Community Health and Social Care Modelling Team is under the guidance of our respective
+                Executive Deans, Jacqui Ramagge (Science) and Charlotte Clarke (Social Sciences and Health) as part of
+                the
+                contribution of the Wolfson Research Institute for Health and Wellbeing and the Institute of Data
+                Sciences
+                to the University’s Health@Durham strategy, as well as supported by the Durham Advanced Research
+                Computing
+                team, Research and Innovation Services,
+                Marketing and Communications and CECAN (Centre for the study of Complexity Across the Nexus).</p>
 
-  </body>
+            <p>The team is
+                led by Dr Camila Caiado and Professor Brian Castellani, with the purpose of creating a series of tools
+                and
+                dashboards that Trusts and Councils can use to help support decision and planning accordingly. Some of
+                these
+                tools are hosted by Durham University through IBM’s cloud, which they have provided presently for free
+                as
+                part of our Academic Partnership. We would also like to acknowledge the outstanding contribution of Dr
+                Jennifer Badham, Dr Peter Barbrook-Johnson, Professor Amanda Ellison, Dr Andrew Iskauskas, Dr Bernard
+                Piette, Dr Rachel Oughton, and Dr Corey Schimpf.</p>
+        </div>
+        <p class="spaced" style="font-size:12px;font-weight:normal;">Please contact <a
+                href="mailto:c.c.d.s.caiado@durham.ac.uk">Camila Caiado</a> with any
+            queries.
+
+
+
+        <div class="footer fixed-bottom" id="footer">
+            <div class="container-fluid" id="logos">
+                <div class="logo" href="https://www.durham.ac.uk/arc" title="Advanced Research Computing"><img
+                        id="arc-logo" src="images/arc-logo.png"></div>
+                <div class="logo" href="https://www.cecan.ac.uk" title="CECAN">
+                    <img id="cecan-logo" src="images/cecan-logo.png"></div>
+                <div class="logo" id="complex-div" href="https://www.art-sciencefactory.com/complexit.html" title="COMPLEX-IT">
+                    <img id="complex-it-logo" src="images/complex-it-logo.png"></div>
+                <div class="logo" href="https://www.dur.ac.uk/mathematical.sciences/"
+                    title="Department of Mathematical Sciences">
+                    <img id="maths-logo" src="images/maths-logo.png"></div>
+                <div class="logo" id="wolfson-div" href="https://www.dur.ac.uk/wolfson.institute/"
+                    title="Wolfson Institute for Health and Wellbeing">
+                    <img id="wolfson-logo" src="images/wolfson-logo.png"></div>
+                <!---
+                    <div id="carouselExample" class="carousel slide w-100" data-ride="carousel" data-interval="5000">
+                    <div class="carousel-inner w-100" role="listbox">
+                        <div class="carousel-item active">
+                            <div class="col-lg-4 col-md-6">
+                                <img src="images/arc-logo.png" href="https://www.durham.ac.uk/arc" id="arc-logo"
+                                    class="img-fluid" alt="Advanced Research Computing">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-lg-4 col-md-6">
+                                <img src="images/cecan-logo.png" href="https://www.cecan.ac.uk" id="cecan-logo"
+                                    class="img-fluid" alt="CECAN">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-lg-4 col-md-6">
+                                <img src="images/complex-it-logo.png"
+                                    href="https://www.art-sciencefactory.com/complexit.html" id="complex-it-logo"
+                                    class="img-fluid" alt="COMPLEX-IT">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-lg-4 col-md-6">
+                                <img src="images/maths-logo.png" href="https://www.dur.ac.uk/mathematical.sciences/"
+                                    id="maths-logo" class="img-fluid" alt="Department of Mathematical Sciences">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-lg-4 col-md-6">
+                                <img src="images/wolfson-logo.png" href="https://www.dur.ac.uk/wolfson.institute/"
+                                    id="wolfson-logo" class="img-fluid"
+                                    alt="Wolfson Institute for Health and Wellbeing">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev bg-light w-auto" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                        <span class="sr-only">Previous</span>
+
+                    </a>
+
+                    <a class="carousel-control-next bg-light w-auto" href="#myCarousel" role="button" data-slide="next">
+
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                        <span class="sr-only">Next</span>
+
+                    </a>
+--->
+            </div>
+                <p style="padding-left: 5px;">&copy; <a href="https://www.durham.ac.uk">Durham University</a> 2020
+                </p>
+        </div>
+        </div>
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+
 </html>
