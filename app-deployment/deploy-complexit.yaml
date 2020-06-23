@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: complexit
-        image: ducovid19tools/complexit:v0.1.6
+        image: ducovid19tools/complexit:v0.1.7
 ---
 apiVersion: v1
 kind: Service
